@@ -1,0 +1,35 @@
+body{
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #f1f1f1;
+}
+
+.info-form{
+  background-color: white;
+  padding: 50px;
+  margin: 5px;
+}
+
+
+.error{
+    margin-bottom: 5px;
+    text-align: center;
+    color: red;
+}
+
+.success{
+  margin-bottom: 5px;
+  text-align: center;
+  color: green;
+}
+
+.info-table{
+  background-color: white;
+  padding: 20px;
+  margin: 5px;
+  text-align: center;
+}
+
+.info-table .table tr th{
+  text-align: center;
+  background-color:darkgrey;
+}

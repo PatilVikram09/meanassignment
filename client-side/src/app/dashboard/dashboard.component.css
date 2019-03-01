@@ -1,0 +1,53 @@
+.navbar-default{
+  background-color: #ffcb08;
+  min-height: 60px;
+  border:none;
+}
+
+.container-fluid{
+  padding-top: 8px;
+}
+
+.navbar-default .navbar-nav li a{
+  color:#00529c;
+  font-size: 17px;
+}
+
+.navbar-default .navbar-nav li a:hover{
+  background-color:#776de0;
+  color:white;
+}
+
+.navbar-default .navbar-nav .open a{
+  background-color:#776de0;
+  color:white;
+}
+
+.dropdown-toggle a:hover{
+  background-color:black;
+}
+
+.dropdown-menu{
+  border: none;
+  min-width: 131px;
+  padding: 0px;
+}
+
+.dropdown .dropdown-menu li a:hover{
+  color:#00529c;
+  background: #ffcb08;
+}
+
+.logout-menu{
+  float:right;
+}
+
+.main-content{
+  min-height: 490px;
+}
+
+.footer{
+  background-color: #ffcb08;
+  min-height: 20px;
+  margin-top: 20px;
+}
