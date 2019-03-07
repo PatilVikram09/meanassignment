@@ -1,13 +1,14 @@
 .login-container{
   margin-top: 10%;
   margin-left: 35%;
-  border: 1px solid #ced4da;
-  padding: 25px;
+  padding: 60px;
   opacity: 0.9;
   background-color: white;
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
 }
 
 .login-container h2{
   margin-top: 0px;
   text-align: center;
 }
+

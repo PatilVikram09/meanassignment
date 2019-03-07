@@ -4,19 +4,13 @@
         <div class="container-fluid">
             <ul class="nav navbar-nav">
                 <li ><a [routerLink]='["home"]'>Home</a></li>
-                     <li><a [routerLink]='["role"]'>Roles</a></li>
-                     <li><a [routerLink]='["adduser"]'>Add Users</a></li>
-                      <li><a [routerLink]='["showusers"]'>Show Userslist</a></li>
-                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Personal Info<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a [routerLink]='["home"]'>Pending</a></li>
-                            <li><a [routerLink]='["home"]'>Rejected</a></li>
-                            <li><a [routerLink]='["home"]'>Approved</a></li>
-                        </ul>
-                    </li>
-                      <li><a [routerLink]='["mypersonalinfo"]'>My PersonalInfo</a></li>
+                <li><a [routerLink]='["role"]' *ngIf="this.roleId==='101'">Roles</a></li>
+                <li><a [routerLink]='["adduser"]' *ngIf="this.roleId==='101' || this.roleId==='102'">Add Users</a></li>
+                <li><a [routerLink]='["showusers"]' *ngIf="this.roleId==='101' || this.roleId==='102'">Show Userslist</a></li>
+                <li><a [routerLink]='["personalinfolist"]' *ngIf="this.roleId==='101'">Personal Info</a></li>
+                <li><a [routerLink]='["mypersonalinfo"]' *ngIf="this.roleId==='103'">My PersonalInfo</a></li>
             </ul>
-
+           
             <ul class="nav navbar-nav logout-menu">
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Hello {{this.userName}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">

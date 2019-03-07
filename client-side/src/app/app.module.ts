@@ -21,7 +21,10 @@ import { RoleService } from './services/app.role.service';
 import { AppGuardService } from './services/app.routeguard.service';
 import { UserService } from './services/app.user.service';
 import { PersonalInfoService } from './services/app.personalinfo.service';
+import { PersonalinfolistComponent } from './personalinfolist/personalinfolist.component';
 
+import { SearchPipe } from './pipes/search.pipe';
+import { MypersonalinfoComponent } from './mypersonalinfo/mypersonalinfo.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { PersonalInfoService } from './services/app.personalinfo.service';
     LogoutComponent,
     AdduserComponent,
     ShowusersComponent,
-    PersonalinfoComponent
+    PersonalinfoComponent,
+    PersonalinfolistComponent,
+    SearchPipe,
+    MypersonalinfoComponent
   ],
 
   imports: [

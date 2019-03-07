@@ -1,6 +1,5 @@
 body{
   font-family: 'Times New Roman', Times, serif;
-  background-color: #f1f1f1;
 }
 
 .info-form{
@@ -9,6 +8,10 @@ body{
   margin: 5px;
 }
 
+.info-form h3 {
+  margin: 0px 0px 15px 0px;
+  text-align: center;
+}
 
 .error{
     margin-bottom: 5px;
@@ -29,7 +32,31 @@ body{
   text-align: center;
 }
 
+.info-table-header{
+  margin: 15px 0px;
+}
+
+.info-table-header p {
+  margin: 0px 0px;
+  font-size: 21px;
+  float: left;
+}
+
 .info-table .table tr th{
   text-align: center;
   background-color:darkgrey;
+}
+
+.search-box{
+  float: right;
+}
+
+.form-control-feedback {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  width: 60px;
+  line-height: 35px;
+  pointer-events: none;
 }

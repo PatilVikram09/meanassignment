@@ -11,6 +11,8 @@ import { AppGuardService} from './services/app.routeguard.service';
 import { AdduserComponent } from './adduser/adduser.component';
 import { ShowusersComponent } from './showusers/showusers.component';
 import { PersonalinfoComponent } from './personalinfo/personalinfo.component';
+import { PersonalinfolistComponent } from './personalinfolist/personalinfolist.component';
+import { MypersonalinfoComponent } from './mypersonalinfo/mypersonalinfo.component';
 
 
 const routes: Routes = [
@@ -50,6 +52,16 @@ const routes: Routes = [
         {
           path: 'personalinfo',
           component: PersonalinfoComponent,
+          canActivate: [AppGuardService]
+        },
+        {
+          path: 'personalinfolist',
+          component: PersonalinfolistComponent,
+          canActivate: [AppGuardService]
+        },
+        {
+          path: 'mypersonalinfo',
+          component: MypersonalinfoComponent,
           canActivate: [AppGuardService]
         }
       ]

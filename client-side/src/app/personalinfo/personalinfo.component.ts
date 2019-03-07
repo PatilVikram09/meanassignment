@@ -35,7 +35,7 @@ export class PersonalinfoComponent implements OnInit {
         this.success = '';
 
         this.frmPrsninfo = new FormGroup({
-          personinfoId: new FormControl(this.personalInfo.personalinfoId
+          personalinfoId: new FormControl(this.personalInfo.personalinfoId
                                       ),
 
           firstName: new FormControl(this.personalInfo.firstName,
@@ -60,7 +60,10 @@ export class PersonalinfoComponent implements OnInit {
                                         Validators.compose([
                                           SelectionValidator.checkSelection
                                         ])),
-          dateOfBirth: new FormControl(),
+          dateOfBirth: new FormControl(this.personalInfo.dateOfBirth,
+                                          Validators.compose([
+                                            Validators.required
+                                          ])),
           age: new FormControl(this.personalInfo.age,
                                   Validators.compose([
                                     Validators.required,
@@ -100,7 +103,8 @@ export class PersonalinfoComponent implements OnInit {
                                 ),
           pincode: new FormControl(this.personalInfo.pincode,
                                     Validators.compose([
-                                      Validators.required
+                                      Validators.required,
+                                      Validators.pattern('[0-9]+'),
                                     ])
                                   ),
           phoneNo: new FormControl(),
@@ -127,11 +131,30 @@ export class PersonalinfoComponent implements OnInit {
     }
 
   ngOnInit() {
-            this.personalInfoserv.getPersonalInfo(this.token).subscribe(
+            this.personalInfoserv.getPersonalInfoById(this.userId, this.token).subscribe(
                                               (resp: Response) => {
-
                                                   if (resp.json().status === 200){
-                                                      console.log('PersonalInfo :', resp.json().data);
+                                                     //console.log('PersonalInfo :', resp.json().data[0]);
+                                                     this.personalInfo.personalinfoId = resp.json().data[0].personinfoId;
+                                                     this.personalInfo.firstName = resp.json().data[0].fullName.firstName;
+                                                     this.personalInfo.middleName = resp.json().data[0].fullName. middleName;
+                                                     this.personalInfo.lastName = resp.json().data[0].fullName.lastName;
+                                                     this.personalInfo.gender = resp.json().data[0].gender;
+                                                     this.personalInfo.dateOfBirth = resp.json().data[0].dateOfBirth;
+                                                     this.personalInfo.age = resp.json().data[0].age;
+                                                     this.personalInfo.flatNumber = resp.json().data[0].address.flatNumber;
+                                                     this.personalInfo.societyName = resp.json().data[0].address.societyName;
+                                                     this.personalInfo.areaName = resp.json().data[0].address.areaName;
+                                                     this.personalInfo.city = resp.json().data[0].city;
+                                                     this.personalInfo.state = resp.json().data[0].state;
+                                                     this.personalInfo.pincode = resp.json().data[0].pincode;
+                                                     this.personalInfo.email = resp.json().data[0].email;
+                                                     this.personalInfo.phoneNo = resp.json().data[0].phoneNo;
+                                                     this.personalInfo.mobileNo = resp.json().data[0].mobileNo;
+                                                     this.personalInfo.physicalDisability = resp.json().data[0].physicalDisability;
+                                                     this.personalInfo.maritalStatus = resp.json().data[0].maritalStatus;
+                                                     this.personalInfo.education = resp.json().data[0].education;
+                                                     this.personalInfo.birthSign = resp.json().data[0].birthSign;
                                                   }
                                               },
                                               error =>{
@@ -145,7 +168,7 @@ export class PersonalinfoComponent implements OnInit {
     this.personalInfo = this.frmPrsninfo.value;
     this.personalInfo.userId = this.userId;
     this.personalInfo.roleId = this.roleId;
-    //console.log('PerInfo :', this.personalInfo)
+    console.log('PerInfo :', this.personalInfo)
 
     this.personalInfoserv.addPersonalInfo(this.personalInfo, this.token).subscribe(
                                                                     (resp: Response) => {

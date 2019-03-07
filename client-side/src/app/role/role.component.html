@@ -3,6 +3,7 @@
     </div>
 
     <div class="col-md-6 info-form">
+            <div><h3>Add Role</h3></div>
         <div class="error">{{this.error}}</div>
         <div class="success">{{this.success}}</div>
         <form name="frmRole" [formGroup]="frmRole" (submit)="addRole()">
@@ -35,6 +36,11 @@
     </div>
 
     <div class="col-md-6 info-table">
+        <div class="col-md-12 info-table-header">
+                <div class="col-md-4">
+                    <p>Role List</p>
+                </div>
+        </div>
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>

@@ -13,20 +13,20 @@ export class PersonalInfoService {
       this.url = 'http://localhost:4070';
   }
 
-  getPersonalInfo(token: string): Observable<Response>{
-    let resp: Observable<Response>;
-    let header: Headers = new Headers({
-        'Content-Type': 'application/json',
-        'authorization': 'Bearer ' + token
-    });
+    getPersonalInfo(token: string): Observable<Response>{
+        let resp: Observable<Response>;
+        let header: Headers = new Headers({
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + token
+        });
 
-    let options: RequestOptions = new RequestOptions();
-    options.headers = header;
+        let options: RequestOptions = new RequestOptions();
+        options.headers = header;
 
-    resp = this.http.get(`${this.url}/api/personalinfo`, options);
+        resp = this.http.get(`${this.url}/api/personalinfo`, options);
 
-    return resp;
-}
+        return resp;
+    }
 
   addPersonalInfo(personalInfo: PersonalInfo, token: string): Observable<Response>{
       let resp: Observable<Response>;
@@ -42,4 +42,65 @@ export class PersonalInfoService {
 
       return resp;
   }
+
+  getPersonalInfoById(userId:number, token:string): Observable<Response>{
+    let resp: Observable<Response>;
+    let header: Headers = new Headers({
+        'Content-Type': 'application/json',
+        'authorization': 'Bearer ' + token
+    });
+
+    let options: RequestOptions = new RequestOptions();
+    options.headers = header;
+
+    resp = this.http.get(`${this.url}/api/personalinfoid/${userId}`, options);
+
+    return resp;
+}
+
+  getPersonalInfoByStatus(status: string, token: string ): Observable<Response>{
+        let resp: Observable<Response>;
+        let header: Headers = new Headers({
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + token
+        });
+
+        let options: RequestOptions = new RequestOptions();
+        options.headers = header;
+
+        resp = this.http.get(`${this.url}/api/perinfoByStatus/${status}`, options);
+
+        return resp;
+    }
+
+
+    approvePersonalInfo(userId:number, token: string):Observable<Response>{
+        let resp: Observable<Response>;
+        let header: Headers = new Headers({
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + token
+        });
+
+        let options: RequestOptions = new RequestOptions();
+        options.headers = header;
+
+        resp = this.http.get(`${this.url}/api/personalinfoapprove/${userId}`, options);
+
+        return resp;
+    }
+
+    rejectPersonalInfo(userId:number, token: string):Observable<Response>{
+        let resp: Observable<Response>;
+        let header: Headers = new Headers({
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + token
+        });
+
+        let options: RequestOptions = new RequestOptions();
+        options.headers = header;
+
+        resp = this.http.get(`${this.url}/api/personalinforeject/${userId}`, options);
+
+        return resp;
+    }
 }
